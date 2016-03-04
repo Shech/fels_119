@@ -44,4 +44,10 @@ return [
     'empty_result' => 'Empty Result',
     'empty_lesson' => 'Empty Lesson',
     'unauthorized' => 'Unauthorized action.',
+    'learned' => 'Learned',
+    'unlearned' => 'Unlearned',
+    'all' => 'All',
+    'undefined' => 'Undefined.',
+    'no_result' => 'No Result',
+    'select_category' => 'Select your category',
 ];
