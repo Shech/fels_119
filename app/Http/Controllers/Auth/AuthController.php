@@ -53,7 +53,7 @@ class AuthController extends Controller
             'name' => 'required|max:255',
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|min:6|confirmed',
-            'image' => 'required|mimes:jpeg,jpg,png',
+            'image' => 'required|mimes:jpeg, jpg, png',
         ]);
     }
 
@@ -69,7 +69,8 @@ class AuthController extends Controller
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
-            'role' => \App\Models\User::TYPE_MEMBER,
+            'role' => User::TYPE_MEMBER,
+            'image' => $data['image_name'],
         ]);
     }
 }
