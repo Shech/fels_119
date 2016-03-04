@@ -28,13 +28,15 @@ Route::get('/', function () {
 
 Route::group(['middleware' => 'web'], function () {
     Route::auth();
+    Route::resourceparameters([
+        'categories' => 'category',
+        'words' => 'word',
+    ]);
     Route::group(['middleware' => 'auth'], function () {
         Route::get('/home', 'HomeController@index');
         Route::group(['middleware' => 'admin'], function () {
-            Route::resourceparameters([
-                'categories' => 'category',
-            ]);
             Route::resource('categories', 'CategoryController');
+            Route::resource('words', 'WordController');
         });
     });
 });
