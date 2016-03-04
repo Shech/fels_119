@@ -80,12 +80,12 @@ class AuthController extends Controller
         return view('auth.password');
     }
 
-    public function updatePassword(Request $request, User $user)
+    public function updatePassword(Request $request)
     {
         $this->validate($request, [
             'password' => 'required|confirmed|min:6',
         ]);
-        $user->update(['password' => bcrypt($request->password)]);
+        $this->user->update(['password' => bcrypt($request->password)]);
         return redirect('/home');
     }
 }

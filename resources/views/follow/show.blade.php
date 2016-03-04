@@ -16,11 +16,20 @@
                                 </div>
                             </div>
                             <div class="col-md-9 verticalLine">
-                                {{ link_to('/wordlists', trans('text.word'), ['class' => 'btn btn-primary btn-lg width-40']) }}
-                                {{ link_to('/lessons', trans('text.lesson'), ['class' => 'btn btn-primary btn-lg width-40']) }}
+                                @if (!empty($follow))
+                                    {{ Form::open(['method' => 'DELETE', 'action' => ['FollowController@destroy', $user->id]]) }}
+                                        {{ Form::hidden('following_id', $user->id) }}
+                                        {{ Form::submit(trans('text.unfollow'), ['class' => 'btn btn-primary btn-lg pull-right']) }}
+                                    {{ Form::close() }}
+                                @else
+                                    {{ Form::open(['method' => 'PATCH', 'action' => ['FollowController@update', $user->id]]) }}
+                                        {{ Form::hidden('following_id', $user->id) }}
+                                        {{ Form::submit(trans('text.follow'), ['class' => 'btn btn-primary btn-lg pull-right']) }}
+                                    {{ Form::close() }}
+                                @endif
                                 <h1>{{ trans('text.activities') }}</h1>
                                 <hr>
-                                @forelse($lessons as $lesson)
+                                @forelse ($lessons as $lesson)
                                     <div class="media">
                                         <div class="media-left">
                                             {{ Html::image(config('path.category') . $user->image, '', ['class' => 'media-object', 'data-holder-rendered' => 'true', 'width' => 50, 'height' => 50 ]) }}
