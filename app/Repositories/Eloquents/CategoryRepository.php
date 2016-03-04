@@ -10,7 +10,7 @@ class CategoryRepository extends Repository implements CategoryRepositoryInterfa
     {
         if (!empty($request->file('image_category'))) {
             $imageData = $request->file('image_category');
-            $path = public_path('pictures/category');
+            $path = public_path(config('path.category'));
             $imageName = time() . "." . $imageData->getClientOriginalExtension();
             $upload = $imageData->move($path, $imageName);
         } else {

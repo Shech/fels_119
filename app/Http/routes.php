@@ -28,18 +28,18 @@ Route::get('/', function () {
 
 Route::group(['middleware' => 'web'], function () {
     Route::auth();
-
-    Route::resourceparameters([
-        'categories' => 'category',
-        'words' => 'word',
-        'lessons' => 'lesson',
-    ]);
-
     Route::group(['middleware' => 'auth'], function () {
+        Route::resourceparameters([
+            'categories' => 'category',
+            'words' => 'word',
+            'lessons' => 'lesson',
+        ]);
         Route::get('/home', 'HomeController@index');
-
+        Route::resource('user', 'UserController');
         Route::get('/password/{user}', 'Auth\AuthController@changePassword');
         Route::post('/password/{user}', 'Auth\AuthController@updatePassword');
+        Route::get('/profile', 'UserController@profile');
+        Route::resource('follow', 'FollowController');
         Route::group(['middleware' => 'admin'], function () {
             Route::resource('categories', 'CategoryController');
             Route::resource('words', 'WordController');

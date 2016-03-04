@@ -11,7 +11,7 @@ class WordRepository extends Repository implements WordRepositoryInterface
     {
         if (!empty($request->file('sound_file'))) {
             $soundFile = $request->file('sound_file');
-            $path = public_path('sounds');
+            $path = public_path(config('path.sound'));
             $soundName = time() . "." . $soundFile->getClientOriginalExtension();
             $upload = $soundFile->move($path, $soundName);
         } else {

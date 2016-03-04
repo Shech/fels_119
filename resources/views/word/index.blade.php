@@ -29,7 +29,7 @@
                                         <td>{{ $word->word_options }}</td>
                                         <td>
                                             <audio controls>
-                                            <source src="sounds/{{ $word->sound_file }}" type="audio/mpeg">
+                                            <source src="{{ config('path.sound') . $word->sound_file }}" type="audio/mpeg">
                                             </audio>
                                         </td>
                                         <td>{{ $word->category->name }}</td>
