@@ -9,6 +9,10 @@ class Category extends Model
 {
     use SoftDeletes;
 
+    protected $fillable = [
+        'name', 'description', 'image',
+    ];
+
     public function words()
     {
         return $this->hasMany(Word::class);
@@ -18,4 +22,5 @@ class Category extends Model
     {
         return $this->hasMany(Lesson::class);
     }
+
 }
