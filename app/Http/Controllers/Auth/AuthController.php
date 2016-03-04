@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Foundation\Auth\AuthenticatesAndRegistersUsers;
 use Illuminate\Foundation\Auth\ThrottlesLogins;
+use Illuminate\Http\Request;
 use Validator;
 
 class AuthController extends Controller
@@ -29,7 +30,7 @@ class AuthController extends Controller
      * @var string
      */
 
-    protected $redirectTo = '/';
+    protected $redirectTo = '/home';
 
     /**
      * Create a new authentication controller instance.
@@ -38,7 +39,8 @@ class AuthController extends Controller
      */
     public function __construct()
     {
-        $this->middleware($this->guestMiddleware(), ['except' => 'logout']);
+        $this->middleware('auth', ['only' => ['changePassword', 'updatePassword']]);
+        $this->middleware('guest', ['except' => ['logout', 'changePassword', 'updatePassword']]);
     }
 
     /**
@@ -53,7 +55,7 @@ class AuthController extends Controller
             'name' => 'required|max:255',
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|min:6|confirmed',
-            'image' => 'required|mimes:jpeg, jpg, png',
+            'image_user' => 'mimes:jpeg, jpg, png',
         ]);
     }
 
@@ -70,7 +72,20 @@ class AuthController extends Controller
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
             'role' => User::TYPE_MEMBER,
-            'image' => $data['image_name'],
         ]);
+    }
+
+    public function changePassword()
+    {
+        return view('auth.password');
+    }
+
+    public function updatePassword(Request $request, User $user)
+    {
+        $this->validate($request, [
+            'password' => 'required|confirmed|min:6',
+        ]);
+        $user->update(['password' => bcrypt($request->password)]);
+        return redirect('/home');
     }
 }
