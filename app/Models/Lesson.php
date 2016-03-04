@@ -6,6 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Lesson extends Model
 {
+    const ANSWER_CORRECT = 1;
+    const ANSWER_WRONG = 0;
+
     public function user()
     {
         return $this->belongsTo(User::class);

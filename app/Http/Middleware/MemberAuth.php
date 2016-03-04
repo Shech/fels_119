@@ -4,7 +4,7 @@ namespace App\Http\Middleware;
 
 use Closure;
 
-class AdminAuth
+class MemberAuth
 {
     /**
      * Handle an incoming request.
@@ -15,10 +15,10 @@ class AdminAuth
      */
     public function handle($request, Closure $next)
     {
-        if ($request->user()->isAdmin()) {
+        if ($request->user()->isMember()) {
             return $next($request);
         } else {
-            return abort(403, trans('text.unauthorized'));
+            return abort(404, trans('text.unauthorized'));
         }
     }
 }
