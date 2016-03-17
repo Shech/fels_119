@@ -21,4 +21,10 @@ return [
     'reset_password' => 'Reset Password',
     'be_right_back' => 'Be right back.',
     'welcome' => 'Welcome',
+    'category' => 'Category',
+    'edit' => 'Edit',
+    'delete' => 'Delete',
+    'add' => 'Add',
+    'description' => 'Description',
+    'cancel' => 'Cancel',
 ];

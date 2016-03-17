@@ -13,7 +13,9 @@
     <link href="https://fonts.googleapis.com/css?family=Lato:100,300,400,700" rel='stylesheet' type='text/css'>
 
     <!-- Styles -->
+
     <link href="{{ url('css/app.css') }}" rel="stylesheet">
+
 </head>
 <body id="app-layout">
     <nav class="navbar navbar-default">
