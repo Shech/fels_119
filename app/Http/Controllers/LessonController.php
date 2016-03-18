@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Activity;
 use App\Models\Category;
 use App\Models\Lesson;
 use App\Models\LessonWord;
@@ -31,6 +32,12 @@ class LessonController extends Controller
                 return view('lesson.create', compact('lessonWord', 'options'));
             } else {
                 session()->forget('wordId');
+                Activity::insert([
+                    'user_id' => $this->user->id,
+                    'lesson_id' => $lesson->id,
+                    'created_at' => Carbon::now(),
+                    'updated_at' => Carbon::now(),
+                ]);
                 return redirect('lessons/' . $lesson->id . '/results');
             }
         } else {

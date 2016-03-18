@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests;
-use Illuminate\Http\Request;
+use App\Models\Activity;
+use App\Models\Lesson;
+use App\Models\User;
 
 class HomeController extends Controller
 {
@@ -14,6 +15,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
+        parent::__construct();
         $this->middleware('auth');
     }
 
@@ -24,6 +26,13 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $user = User::find($this->user->id);
+        $lessonId = Activity::where('user_id', $this->user->id)->lists('lesson_id');
+        $lessons = Lesson::whereIn('id', $lessonId)
+            ->with('category')
+            ->orderBy('id', 'desc')
+            ->take(10)
+            ->get();
+        return view('home', compact('lessons', 'user'));
     }
 }
