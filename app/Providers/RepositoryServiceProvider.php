@@ -26,5 +26,9 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind('App\Repositories\Contracts\CategoryRepositoryInterface', function () {
             return new \App\Repositories\Eloquents\CategoryRepository(\App\Models\Category::class);
         });
+
+        $this->app->bind('App\Repositories\Contracts\WordRepositoryInterface', function () {
+            return new \App\Repositories\Eloquents\WordRepository(\App\Models\Word::class);
+        });
     }
 }

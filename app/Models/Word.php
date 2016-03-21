@@ -9,6 +9,16 @@ class Word extends Model
 {
     use SoftDeletes;
 
+    const OPTION_COUNT = 3;
+
+    protected $fillable = [
+        'vietnamese_words',
+        'japanese_words',
+        'word_options',
+        'sound_file',
+        'category_id',
+    ];
+
     public function category()
     {
         return $this->belongsTo(Category::class);
@@ -21,7 +31,6 @@ class Word extends Model
 
     public function lessons()
     {
-        return $this->belongsToMany(Lesson::class 'lesson_words', 'word_id', 'lesson_id');
+        return $this->belongsToMany(Lesson::class, 'lesson_words', 'word_id', 'lesson_id');
     }
-
 }

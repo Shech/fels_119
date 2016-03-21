@@ -27,4 +27,13 @@ return [
     'add' => 'Add',
     'description' => 'Description',
     'cancel' => 'Cancel',
+    'word' => 'Word',
+    'sound_file' => 'Sound File',
+    'word_options' => 'Word Options',
+    'japanese_word' => 'Japanese Word',
+    'vietnam_word' => 'Vietnam Word',
+    'option' => 'Option',
+    'category_name' => 'Category Name',
+    'no_data_words' => 'There is no data for words',
+    'submit' => 'Submit',
 ];
