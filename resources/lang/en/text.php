@@ -36,4 +36,12 @@ return [
     'category_name' => 'Category Name',
     'no_data_words' => 'There is no data for words',
     'submit' => 'Submit',
+    'lesson' => 'Lesson',
+    'start' => 'Start',
+    'learnedword' => 'You\'ve learned',
+    'learned_all_category' => 'You have learned all words in this category',
+    'result' => 'Result',
+    'empty_result' => 'Empty Result',
+    'empty_lesson' => 'Empty Lesson',
+    'unauthorized' => 'Unauthorized action.',
 ];

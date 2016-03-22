@@ -28,15 +28,23 @@ Route::get('/', function () {
 
 Route::group(['middleware' => 'web'], function () {
     Route::auth();
+
     Route::resourceparameters([
         'categories' => 'category',
         'words' => 'word',
+        'lessons' => 'lesson',
     ]);
+
     Route::group(['middleware' => 'auth'], function () {
         Route::get('/home', 'HomeController@index');
+
         Route::group(['middleware' => 'admin'], function () {
             Route::resource('categories', 'CategoryController');
             Route::resource('words', 'WordController');
+        });
+        Route::group(['middleware' => 'member'], function () {
+            Route::resource('lessons', 'LessonController');
+            Route::get('lessons/{lesson}/results', 'LessonController@showResults');
         });
     });
 });

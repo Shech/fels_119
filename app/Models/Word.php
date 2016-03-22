@@ -33,4 +33,14 @@ class Word extends Model
     {
         return $this->belongsToMany(Lesson::class, 'lesson_words', 'word_id', 'lesson_id');
     }
+
+    public function lessonWords()
+    {
+        return $this->hasMany(LessonWord::class);
+    }
+
+    public function userWord()
+    {
+        return $this->belongsTo(UserWord::class);
+    }
 }
