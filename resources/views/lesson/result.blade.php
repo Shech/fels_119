@@ -41,6 +41,8 @@
                                 @endforelse
                             </tbody>
                         </table>
+                        {{ link_to('/home', trans('text.back'), ['class' => 'btn btn-primary']) }}
+                        {{ link_to('/lessons', trans('text.take_lesson'), ['class' => 'btn btn-primary pull-right']) }}
                     </div>
                 </div>
             </div>

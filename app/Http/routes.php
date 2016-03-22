@@ -44,6 +44,7 @@ Route::group(['middleware' => 'web'], function () {
         Route::group(['middleware' => 'admin'], function () {
             Route::resource('categories', 'CategoryController');
             Route::resource('words', 'WordController');
+            Route::get('users', 'UserController@userlist');
         });
         Route::group(['middleware' => 'member'], function () {
             Route::resource('lessons', 'LessonController');
@@ -52,5 +53,4 @@ Route::group(['middleware' => 'web'], function () {
             Route::post('wordlist', 'WordController@search');
         });
     });
-  });
 });

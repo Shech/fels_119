@@ -24,7 +24,7 @@
 
                 <div class="form-group">
                     {{ Form::submit('Submit', ['class' => 'btn btn-success pull-right']) }}
-                    {{ link_to('category', trans('text.cancel'), ['class' => 'btn btn-primary pull-left']) }}
+                    {{ link_to('categories', trans('text.cancel'), ['class' => 'btn btn-primary pull-left']) }}
                 </div>
             {{ Form::close() }}
         </div>

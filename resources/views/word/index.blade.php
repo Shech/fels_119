@@ -15,7 +15,7 @@
                                 <tr>
                                     <th>{{ trans('text.vietnam_word') }}</th>
                                     <th>{{ trans('text.japanese_word') }}</th>
-                                    <th>{{ trans('text.words_option') }}</th>
+                                    <th>{{ trans('text.word_options') }}</th>
                                     <th>{{ trans('text.sound_file') }}</th>
                                     <th>{{ trans('text.category') }}</th>
                                     <th></th>

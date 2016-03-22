@@ -46,7 +46,7 @@
 
                             <div class="form-group">
                                 <div class="col-md-4 col-md-offset-6">
-                                    {{ Form::button('<i class="fa fa-btn fa-user"></i>' . trans('text.register'), ['class' => 'btn btn-primary', 'type' => 'submit']) }}
+                                    {{ Form::button('<i class="fa fa-btn fa-user"></i>' . trans('text.update'), ['class' => 'btn btn-primary', 'type' => 'submit']) }}
                                 </div>
                             </div>
                         {{ Form::close() }}

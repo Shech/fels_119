@@ -3,8 +3,29 @@
 
 body {
     font-family: 'Lato';
+    background-image: url('http://ex.dev/fels_119/public/picture/background.jpg'); 
 }
-
+.panel{
+    background-color:white;
+}
 .fa-btn {
     margin-right: 6px;
+}
+
+.width-40 {
+  width:40%;
+}
+
+.verticalLine {
+    border-left: 1px solid #ddd;
+}
+
+.center-image{
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+.marg-t-10{
+  margin-top: 10px;
 }

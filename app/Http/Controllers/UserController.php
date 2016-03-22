@@ -67,4 +67,10 @@ class UserController extends Controller
         $user->delete();
         return redirect('/home');
     }
+
+    public function userlist()
+    {
+        $users = User::where('role', User::TYPE_MEMBER)->paginate(20);
+        return view('user.users', compact('users'));
+    }
 }

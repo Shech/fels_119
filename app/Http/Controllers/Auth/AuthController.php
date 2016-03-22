@@ -39,6 +39,7 @@ class AuthController extends Controller
      */
     public function __construct()
     {
+        parent::__construct();
         $this->middleware('auth', ['only' => ['changePassword', 'updatePassword']]);
         $this->middleware('guest', ['except' => ['logout', 'changePassword', 'updatePassword']]);
     }

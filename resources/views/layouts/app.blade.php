@@ -22,22 +22,28 @@
         <div class="container">
             <div class="navbar-header">
                <!-- Branding Image -->
-               {{ link_to('/home', trans('text.elearning'), array('class' => 'navbar-brand')) }}
+                @if (!Auth::guest())
+                    {{ link_to('/home', trans('text.elearning'), array('class' => 'navbar-brand')) }}
+                @else
+                    {{ link_to('/', trans('text.elearning'), array('class' => 'navbar-brand')) }}
+                @endif
             </div>
 
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
                 <!-- Left Side Of Navbar -->
-                <ul class="nav navbar-nav">
-                    <li>{{ link_to('/home', trans('text.home')) }}</li>
-                    <li>
-                        {{ Form::open(['method' => 'POST', 'action' => ['UserController@search'], 'class' => 'form-inline']) }}
-                            <div class="form-group marg-t-10">
-                                {{ Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Enter a name']) }}
-                                {{ Form::submit(trans('text.search'), ['class' => 'btn btn-primary']) }}
-                            </div>
-                        {{ Form::close() }}
-                    </li>
-                </ul>
+                 @if (!Auth::guest())
+                    <ul class="nav navbar-nav">
+                        <li>{{ link_to('/home', trans('text.home')) }}</li>
+                        <li>
+                            {{ Form::open(['method' => 'POST', 'action' => ['UserController@search'], 'class' => 'form-inline']) }}
+                                <div class="form-group marg-t-10">
+                                    {{ Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Enter a name']) }}
+                                    {{ Form::submit(trans('text.search'), ['class' => 'btn btn-primary']) }}
+                                </div>
+                            {{ Form::close() }}
+                        </li>
+                    </ul>
+                @endif
 
                 <!-- Right Side Of Navbar -->
                 <ul class="nav navbar-nav navbar-right">
