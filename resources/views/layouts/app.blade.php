@@ -22,7 +22,7 @@
         <div class="container">
             <div class="navbar-header">
                <!-- Branding Image -->
-               {{ link_to('/', trans('text.elearning'), array('class' => 'navbar-brand')) }}
+               {{ link_to('/home', trans('text.elearning'), array('class' => 'navbar-brand')) }}
             </div>
 
             <div class="collapse navbar-collapse" id="app-navbar-collapse">
@@ -39,7 +39,7 @@
                         <li>{{ link_to('/register', trans('text.register')) }}</li>
                     @else
                         <li class="dropdown pull-right">
-                            {!! Html::decode(link_to('#',Auth::user()->name. '<span class="caret"></span>', [
+                            {!! Html::decode(link_to('#', Auth::user()->name . '<span class="caret"></span>', [
                                     'class' => 'dropdown-toggle',
                                     'data-toggle' =>'dropdown',
                                     'role' => 'button',
@@ -48,15 +48,18 @@
 
                             <ul class="dropdown-menu" role="menu">
                                 <li>
-                                    {!! Html::decode(link_to('/profile','<i class="fa fa-btn fa fa-user"></i>'.trans('text.profile'))) !!}
+                                    {!! Html::decode(link_to('/profile', '<i class="fa fa-btn fa fa-user"></i>' . trans('text.profile'))) !!}
                                 </li>
                                 <li>
-                                    {!! Html::decode(link_to('/logout','<i class="fa fa-btn fa-sign-out"></i>'.trans('text.logout'))) !!}
+                                    {!! Html::decode(link_to('/password/' . auth()->user()->id, '<i class="fa fa-key fa-fw"></i>' . trans('text.changepassword'))) !!}
+                                </li>
+                                <li>
+                                    {!! Html::decode(link_to('/logout', '<i class="fa fa-btn fa-sign-out"></i>' . trans('text.logout'))) !!}
                                 </li>
                             </ul>
                         </li>
-                        @if( auth()->user()->image != "" )
-                            <img class="img-responsive img-circle pull-right " src="pictures/profile/{{ auth()->user()->image }}" width="12%" height="12%">
+                        @if(!empty(auth()->user()->image))
+                            {{ Html::image('pictures/profile/' . auth()->user()->image, '', ['class' => 'img-responsive img-circle pull-right', 'width' => '12%', 'height' => '12%']) }}
                        @endif
                     @endif
                 </ul>

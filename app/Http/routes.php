@@ -38,6 +38,8 @@ Route::group(['middleware' => 'web'], function () {
     Route::group(['middleware' => 'auth'], function () {
         Route::get('/home', 'HomeController@index');
 
+        Route::get('/password/{user}', 'Auth\AuthController@changePassword');
+        Route::post('/password/{user}', 'Auth\AuthController@updatePassword');
         Route::group(['middleware' => 'admin'], function () {
             Route::resource('categories', 'CategoryController');
             Route::resource('words', 'WordController');

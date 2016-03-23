@@ -27,6 +27,7 @@ return [
     'add' => 'Add',
     'description' => 'Description',
     'cancel' => 'Cancel',
+    'changepassword' => 'Change Password',
     'word' => 'Word',
     'sound_file' => 'Sound File',
     'word_options' => 'Word Options',
