@@ -10,6 +10,9 @@ class Word extends Model
     use SoftDeletes;
 
     const OPTION_COUNT = 3;
+    const LEARNED_WORD = 1;
+    const UNLEARNED_WORD = 2;
+    const ALL_WORD = 3;
 
     protected $fillable = [
         'vietnamese_words',

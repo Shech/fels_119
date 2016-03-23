@@ -56,11 +56,11 @@ class User extends Authenticatable
 
     public function isAdmin()
     {
-        return self::TYPE_ADMIN == $this->role;
+        return $this->role == self::TYPE_ADMIN;
     }
 
     public function isMember()
     {
-        return self::TYPE_MEMBER == $this->role;
+        return $this->role == self::TYPE_MEMBER;
     }
 }

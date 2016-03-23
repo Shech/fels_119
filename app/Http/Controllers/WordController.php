@@ -6,6 +6,7 @@ use App\Http\Requests\WordRequest;
 use App\Models\Category;
 use App\Models\Word;
 use App\Repositories\Contracts\WordRepositoryInterface as WordRepository;
+use Illuminate\Http\Request;
 
 class WordController extends Controller
 {
@@ -25,7 +26,7 @@ class WordController extends Controller
 
     public function index()
     {
-        $words = Word::all();
+        $words = Word::paginate(20);
         $categories = Category::lists('name');
         return view('word.index', compact('words', 'categories'));
     }
@@ -54,5 +55,19 @@ class WordController extends Controller
     {
         $word->delete();
         return redirect('words');
+    }
+
+    public function show()
+    {
+        $words = Word::all();
+        $categories = Category::lists('name', 'id')->all();
+        return view('word.wordlist', compact('words', 'categories'));
+    }
+
+    public function search(Request $request)
+    {
+        $words = $this->wordRepository->filterWords($request);
+        $categories = Category::lists('name', 'id')->all();
+        return view('word.wordlist', compact('words', 'categories'));
     }
 }
