@@ -13,7 +13,7 @@
                             <div class="media col-md-8">
                                 <div class="media-left media-middle">
                                     @if (!empty($category->image))
-                                        {{ Html::image('/pictures/category/' . $category->image, '', ['class' => 'media-object', 'data-holder-rendered' => 'true', 'width' => 100, 'height' => 100 ]) }}
+                                        {{ Html::image(config('path.category') . $category->image, '', ['class' => 'media-object', 'data-holder-rendered' => 'true', 'width' => 100, 'height' => 100 ]) }}
                                     @endif
                                 </div>
                                 <div class="media-body">

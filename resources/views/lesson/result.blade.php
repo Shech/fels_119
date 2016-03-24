@@ -25,7 +25,7 @@
                                         <td>{{ $result->word->japanese_words }}</td>
                                         <td>
                                             <audio controls>
-                                                <source src="sounds/{{ $result->sound_file }}" type="audio/mpeg">
+                                                <source src="{{ config('path.sound') . $result->sound_file }}" type="audio/mpeg">
                                             </audio>
                                         </td>
                                         <td>

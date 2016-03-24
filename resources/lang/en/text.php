@@ -40,6 +40,10 @@ return [
     'lesson' => 'Lesson',
     'start' => 'Start',
     'learnedword' => 'You\'ve learned',
+    'changepassword' => 'Change Password',
+    'following' => 'Following',
+    'emptyfollow' => 'You didn\'t follow anyone',
+    'followers' => 'Followers',
     'learned_all_category' => 'You have learned all words in this category',
     'result' => 'Result',
     'empty_result' => 'Empty Result',
@@ -51,4 +55,5 @@ return [
     'undefined' => 'Undefined.',
     'no_result' => 'No Result',
     'select_category' => 'Select your category',
+    'unfollow' => 'Unfollow',
 ];

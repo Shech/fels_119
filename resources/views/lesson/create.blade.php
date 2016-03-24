@@ -12,7 +12,7 @@
                         <div class="media col-md-6"><br>
                             <h2> {{ $lessonWord->word->vietnamese_words}} </h2><br><br>
                             <audio controls>
-                                <source src="sounds/{{ $lessonWord->word->sound_file }}" type="audio/mpeg">
+                                <source src="{{ config('path.sound') . $lessonWord->word->sound_file }}" type="audio/mpeg">
                             </audio>
                         </div>
                         <div class="media col-md-6">

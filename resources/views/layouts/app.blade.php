@@ -51,15 +51,15 @@
                                     {!! Html::decode(link_to('/profile', '<i class="fa fa-btn fa fa-user"></i>' . trans('text.profile'))) !!}
                                 </li>
                                 <li>
-                                    {!! Html::decode(link_to('/password/' . auth()->user()->id, '<i class="fa fa-key fa-fw"></i>' . trans('text.changepassword'))) !!}
+                                    {!! Html::decode(link_to('/password' . auth()->user()->id, '<i class="fa fa-key fa-fw"></i>' . trans('text.changepassword'))) !!}
                                 </li>
                                 <li>
                                     {!! Html::decode(link_to('/logout', '<i class="fa fa-btn fa-sign-out"></i>' . trans('text.logout'))) !!}
                                 </li>
                             </ul>
                         </li>
-                        @if(!empty(auth()->user()->image))
-                            {{ Html::image('pictures/profile/' . auth()->user()->image, '', ['class' => 'img-responsive img-circle pull-right', 'width' => '12%', 'height' => '12%']) }}
+                        @if (!empty(auth()->user()->image))
+                            {{ Html::image(config('path.user_profile') . auth()->user()->image, '', ['class' => 'img-responsive img-circle pull-right', 'width' => '12%', 'height' => '12%']) }}
                        @endif
                     @endif
                 </ul>
