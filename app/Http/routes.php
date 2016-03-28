@@ -35,10 +35,11 @@ Route::group(['middleware' => 'web'], function () {
             'lessons' => 'lesson',
         ]);
         Route::get('home', 'HomeController@index');
-        Route::resource('user', 'UserController');
-        Route::get('password/{user}', 'Auth\AuthController@changePassword');
-        Route::post('password/{user}', 'Auth\AuthController@updatePassword');
+        Route::get('password', 'Auth\AuthController@changePassword');
+        Route::post('password', 'Auth\AuthController@updatePassword');
+        Route::post('home', 'UserController@search');
         Route::get('profile', 'UserController@profile');
+        Route::resource('user', 'UserController');
         Route::resource('follow', 'FollowController');
         Route::group(['middleware' => 'admin'], function () {
             Route::resource('categories', 'CategoryController');

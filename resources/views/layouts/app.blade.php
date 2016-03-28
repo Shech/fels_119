@@ -29,6 +29,14 @@
                 <!-- Left Side Of Navbar -->
                 <ul class="nav navbar-nav">
                     <li>{{ link_to('/home', trans('text.home')) }}</li>
+                    <li>
+                        {{ Form::open(['method' => 'POST', 'action' => ['UserController@search'], 'class' => 'form-inline']) }}
+                            <div class="form-group marg-t-10">
+                                {{ Form::text('name', null, ['class' => 'form-control', 'placeholder' => 'Enter a name']) }}
+                                {{ Form::submit(trans('text.search'), ['class' => 'btn btn-primary']) }}
+                            </div>
+                        {{ Form::close() }}
+                    </li>
                 </ul>
 
                 <!-- Right Side Of Navbar -->
@@ -51,7 +59,7 @@
                                     {!! Html::decode(link_to('/profile', '<i class="fa fa-btn fa fa-user"></i>' . trans('text.profile'))) !!}
                                 </li>
                                 <li>
-                                    {!! Html::decode(link_to('/password' . auth()->user()->id, '<i class="fa fa-key fa-fw"></i>' . trans('text.changepassword'))) !!}
+                                    {!! Html::decode(link_to('/password', '<i class="fa fa-key fa-fw"></i>' . trans('text.changepassword'))) !!}
                                 </li>
                                 <li>
                                     {!! Html::decode(link_to('/logout', '<i class="fa fa-btn fa-sign-out"></i>' . trans('text.logout'))) !!}
